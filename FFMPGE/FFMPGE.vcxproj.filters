@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\libav">
+      <UniqueIdentifier>{7f550f06-c323-4f01-92ae-f34b45140388}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\libav">
+      <UniqueIdentifier>{541a6dd2-eaab-450b-a3f7-939d077d5571}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\audio">
+      <UniqueIdentifier>{0de42552-476e-4c6a-8021-7277d08c0379}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\audio">
+      <UniqueIdentifier>{167bb1f0-e20c-4d57-99e1-58cdf247815b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\video">
+      <UniqueIdentifier>{cedf5045-d368-4f43-a591-50a9d7acd7a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\video">
+      <UniqueIdentifier>{977a6627-2a3e-4a80-99ab-cea6d1987c50}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="libav\avplay.h">
+      <Filter>头文件\libav</Filter>
+    </ClInclude>
+    <ClInclude Include="libav\ffmpeg.h">
+      <Filter>头文件\libav</Filter>
+    </ClInclude>
+    <ClInclude Include="libav\globals.h">
+      <Filter>头文件\libav</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\audio_out.h">
+      <Filter>头文件\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\audio_render.h">
+      <Filter>头文件\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\audiocvt.h">
+      <Filter>头文件\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\dsound_render.h">
+      <Filter>头文件\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\internal.h">
+      <Filter>头文件\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="audio\wave_render.h">
+      <Filter>头文件\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="video\d3d_render.h">
+      <Filter>头文件\video</Filter>
+    </ClInclude>
+    <ClInclude Include="video\ddraw_render.h">
+      <Filter>头文件\video</Filter>
+    </ClInclude>
+    <ClInclude Include="video\internal.h">
+      <Filter>头文件\video</Filter>
+    </ClInclude>
+    <ClInclude Include="video\opengl_render.h">
+      <Filter>头文件\video</Filter>
+    </ClInclude>
+    <ClInclude Include="video\soft_render.h">
+      <Filter>头文件\video</Filter>
+    </ClInclude>
+    <ClInclude Include="video\video_out.h">
+      <Filter>头文件\video</Filter>
+    </ClInclude>
+    <ClInclude Include="video\video_render.h">
+      <Filter>头文件\video</Filter>
+    </ClInclude>
+    <ClInclude Include="video\y4m_render.h">
+      <Filter>头文件\video</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FFMPGE.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="libav\avplay.c">
+      <Filter>源文件\libav</Filter>
+    </ClCompile>
+    <ClCompile Include="audio\audio_out.cpp">
+      <Filter>源文件\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="audio\dsound_render.cpp">
+      <Filter>源文件\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="audio\wave_render.cpp">
+      <Filter>源文件\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="video\d3d_render.cpp">
+      <Filter>源文件\video</Filter>
+    </ClCompile>
+    <ClCompile Include="video\ddraw_render.cpp">
+      <Filter>源文件\video</Filter>
+    </ClCompile>
+    <ClCompile Include="video\opengl_render.cpp">
+      <Filter>源文件\video</Filter>
+    </ClCompile>
+    <ClCompile Include="video\soft_render.cpp">
+      <Filter>源文件\video</Filter>
+    </ClCompile>
+    <ClCompile Include="video\video_out.cpp">
+      <Filter>源文件\video</Filter>
+    </ClCompile>
+    <ClCompile Include="video\y4m_render.cpp">
+      <Filter>源文件\video</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
