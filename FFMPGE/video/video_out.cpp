@@ -3,8 +3,6 @@
 #include "video_out.h"
 #include "d3d_render.h"
 #include "ddraw_render.h"
-#include "opengl_render.h"
-#include "y4m_render.h"
 #include "soft_render.h"
 
 #ifdef  __cplusplus
@@ -96,49 +94,6 @@ void ddraw_destory_render(struct vo_context *ctx)
 	}
 }
 
-int ogl_init_video(struct vo_context *ctx, int w, int h, int pix_fmt)
-{
-	opengl_render *ogl = NULL;
-	ctx->priv = (void*)(ogl = new opengl_render);
-	return ogl->init_render(ctx->user_data, w, h, pix_fmt) ? 0 : -1;
-}
-
-int ogl_render_one_frame(struct vo_context *ctx, AVFrame* data, int pix_fmt, double pts)
-{
-	opengl_render *ogl = (opengl_render*)ctx->priv;
-	return ogl->render_one_frame(data, pix_fmt) ? 0 : -1;
-}
-
-void ogl_re_size(struct vo_context *ctx, int width, int height)
-{
-	opengl_render *ogl = (opengl_render*)ctx->priv;
-	ogl->re_size(width, height);
-}
-
-void ogl_aspect_ratio(struct vo_context *ctx, int srcw, int srch, int enable_aspect)
-{
-	opengl_render *ogl = (opengl_render*)ctx->priv;
-	ogl->aspect_ratio(srcw, srch, (bool)enable_aspect);
-}
-
-int ogl_use_overlay(struct vo_context *ctx)
-{
-	opengl_render *ogl = (opengl_render*)ctx->priv;
-	return ogl->use_overlay() ? 0 : -1;
-}
-
-void ogl_destory_render(struct vo_context *ctx)
-{
-	opengl_render *ogl = (opengl_render*)ctx->priv;
-	if (ogl)
-	{
-		ogl->destory_render();
-		delete ogl;
-		ctx->priv = NULL;
-	}
-}
-
-
 int gdi_init_video(struct vo_context *ctx, int w, int h, int pix_fmt)
 {
 	soft_render *gdi = new soft_render;
@@ -181,45 +136,6 @@ void gdi_destory_render(struct vo_context *ctx)
 		ctx->priv = NULL;
 	}
 }
-
-
-int y4m_init_video(struct vo_context *ctx, int w, int h, int pix_fmt)
-{
-	y4m_render *y4m = NULL;
-	ctx->priv = (void*)(y4m = new y4m_render);
-	return y4m->init_render(ctx->user_data, w, h, pix_fmt, ctx->fps) ? 0 : -1;
-}
-
-int y4m_render_one_frame(struct vo_context *ctx, AVFrame* data, int pix_fmt, double pts)
-{
-	y4m_render *y4m = (y4m_render*)ctx->priv;
-	return y4m->render_one_frame(data, pix_fmt) ? 0 : -1;
-}
-
-void y4m_re_size(struct vo_context *ctx, int width, int height)
-{
-}
-
-void y4m_aspect_ratio(struct vo_context *ctx, int srcw, int srch, int enable_aspect)
-{
-}
-
-int y4m_use_overlay(struct vo_context *ctx)
-{
-	return -1;
-}
-
-void y4m_destory_render(struct vo_context *ctx)
-{
-	y4m_render *y4m = (y4m_render*)ctx->priv;
-	if (y4m)
-	{
-		y4m->destory_render();
-		delete y4m;
-		ctx->priv = NULL;
-	}
-}
-
 
 #ifdef  __cplusplus
 }

@@ -43,7 +43,6 @@ enum sync_type
 
 /* 用于config_render参数表示所配置的render或source或demux.  */
 #define MEDIA_SOURCE			0
-#define MEDIA_DEMUX				1
 #define AUDIO_RENDER			2
 #define VIDEO_RENDER			3
 
@@ -76,9 +75,6 @@ void free_audio_render(ao_context *ctx);
 vo_context* alloc_video_render(void *user_data);
 void free_video_render(vo_context *ctx);
 
-/* 分配视频分离和释放. */
-demux_context* alloc_demux_context();
-void free_demux_context(demux_context *ctx);
 
 /* 计算视频实时帧率和实时码率的时间单元. */
 #define MAX_CALC_SEC 5
@@ -163,8 +159,7 @@ typedef struct avplay
 	source_context *m_source_ctx;
 	AVIOContext *m_avio_ctx;
 	unsigned char *m_io_buffer;
-	/* 用于视频分离的组件. */
-	demux_context *m_demux_context;
+
 	/* 当前音频渲染器.	*/
 	ao_context *m_ao_ctx;
 	/* 当前视频渲染器. */
@@ -199,8 +194,6 @@ typedef struct avplay
 	int m_last_fr_time;
 	int m_fr_index;
 
-	/* 正在播放的索引, 只用于BT文件播放. */
-	int m_current_play_index;
 	double m_start_time;
 	double m_buffering;
 
@@ -239,24 +232,6 @@ void free_avplay_context(avplay *ctx);
 int initialize(avplay *play, source_context *sc);
 
 /*
- * Initialize the player.
- * @param play pointer to user-supplied avplayer (allocated by alloc_avplay_context).
- * @param file_name specifies the source file path or url.
- * @param source_type specifies source type, MEDIA_TYPE_FILE or MEDIA_TYPE_BT、
- *  MEDIA_TYPE_HTTP、 MEDIA_TYPE_RTSP、 MEDIA_TYPE_YK.
- * @param dc pointer to user-supplied demux_context object (allocated by alloc_demux_context).
- * @return 0 on success, a negative AVERROR on failure.
- * example:
- * avplayer* play = alloc_avplay_context();
- * int ret;
- * demux_context *dc = alloc_demux_context();
- * ret = initialize_avplay(play, "test.mp4", MEDIA_TYPE_FILE, dc);
- * if (ret != 0)
- *    return ret; // ERROR!
- */
-int initialize_avplay(avplay *play, const char *file_name, int source_type, demux_context *dc);
-
-/*
  * The Configure render or source to palyer.
  * @param play pointer to the player. 
  * @param param video render or audio render or media_source.
@@ -269,10 +244,9 @@ void configure(avplay *play, void *param, int type);
  * The start action player to play. 
  * @param play pointer to the player. 
  * @param fact at time, percent of duration.
- * @param index Specifies the index of the file to play.
  * @param Returns 0 if successful, or an error value otherwise. 
  */
-int av_start(avplay *play, double fact, int index);
+int av_start(avplay *play, double fact);
 
 /*
  * Wait for playback to complete.
@@ -389,13 +363,6 @@ int current_frame_rate(avplay *play);
 double buffering(avplay *play);
 
 /*
- * Set network media save path, for youku, bt... etc.
- * @param play pointer to the player.
- * @save_path pointer to save path.
- */
-void set_download_path(avplay *play, const char *save_path);
-
-/*
  * Blurring algorithm to the input video.
  * @param frame pointer to the frame.
  * @param fw is the width of the video.
@@ -421,18 +388,6 @@ void blurring(AVFrame *frame,
  */
 void alpha_blend(AVFrame *frame, uint8_t *rgba,
 	int fw, int fh, int rgba_w, int rgba_h, int x, int y);
-
-
-/*
- * Set log to file.
- * @param logfile write log to logfile file.
- */
-int logger_to_file(const char* logfile);
-
-/*
- * Close log file.
- */
-int close_logger_file();
 
 /*
  * Write formatted output to log.

@@ -31,6 +31,48 @@
     <Filter Include="源文件\video">
       <UniqueIdentifier>{977a6627-2a3e-4a80-99ab-cea6d1987c50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\ui">
+      <UniqueIdentifier>{6e773e3a-ea4a-49ca-b54f-2b0594152245}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ui">
+      <UniqueIdentifier>{2c81b6c2-231c-453a-ac7e-fcfbf710c963}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ui\control">
+      <UniqueIdentifier>{192cd03a-afb8-4188-b038-6c4f6744fea0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ui\core">
+      <UniqueIdentifier>{ed6a7993-7101-47da-a43d-f705a9857266}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ui\platform">
+      <UniqueIdentifier>{a71d9c69-7062-4275-9cc0-d88354d9ddc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ui\control">
+      <UniqueIdentifier>{70d70b25-4d9d-44b4-9482-66d2c0f8c0c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ui\core">
+      <UniqueIdentifier>{6d708dee-cc5c-4fe2-bc8c-a39be27c5a7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ui\platform">
+      <UniqueIdentifier>{7cd055cd-575f-48a5-8504-4cf9475ae5d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ui\platform\os">
+      <UniqueIdentifier>{b2102223-52cd-4b01-9716-6adc76ab3ba6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\ui\platform\graph">
+      <UniqueIdentifier>{d46880bc-7f43-4501-b71b-494eb5a18fda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ui\platform\os">
+      <UniqueIdentifier>{7a223ffc-9e04-4c7c-ae77-d6c8764f500b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ui\platform\graph">
+      <UniqueIdentifier>{7a2cb038-7c44-4c0a-8fb7-d931e444d118}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\list">
+      <UniqueIdentifier>{3752de04-87c7-4167-9ae5-f72da505ae37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\list">
+      <UniqueIdentifier>{b7941a82-d6a8-4635-995c-b092e463e1e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -90,6 +132,42 @@
     <ClInclude Include="video\y4m_render.h">
       <Filter>头文件\video</Filter>
     </ClInclude>
+    <ClInclude Include="ui\core\Control.h">
+      <Filter>头文件\ui\core</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\core\function.h">
+      <Filter>头文件\ui\core</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\core\window.h">
+      <Filter>头文件\ui\core</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\config.h">
+      <Filter>头文件\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\zui.h">
+      <Filter>头文件\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\platform\os\os.h">
+      <Filter>头文件\ui\platform\os</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\platform\os\win.h">
+      <Filter>头文件\ui\platform\os</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\platform\graph\gdi.h">
+      <Filter>头文件\ui\platform\graph</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\platform\graph\graph.h">
+      <Filter>头文件\ui\platform\graph</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\platform\platform.h">
+      <Filter>头文件\ui\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\control\ZuiButton.h">
+      <Filter>头文件\ui\control</Filter>
+    </ClInclude>
+    <ClInclude Include="list\play_list.h">
+      <Filter>头文件\list</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -116,17 +194,32 @@
     <ClCompile Include="video\ddraw_render.cpp">
       <Filter>源文件\video</Filter>
     </ClCompile>
-    <ClCompile Include="video\opengl_render.cpp">
-      <Filter>源文件\video</Filter>
-    </ClCompile>
     <ClCompile Include="video\soft_render.cpp">
       <Filter>源文件\video</Filter>
     </ClCompile>
     <ClCompile Include="video\video_out.cpp">
       <Filter>源文件\video</Filter>
     </ClCompile>
-    <ClCompile Include="video\y4m_render.cpp">
-      <Filter>源文件\video</Filter>
+    <ClCompile Include="ui\core\Control.c">
+      <Filter>源文件\ui\core</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\core\function.c">
+      <Filter>源文件\ui\core</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\core\window.c">
+      <Filter>源文件\ui\core</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\platform\graph\gdi.c">
+      <Filter>源文件\ui\platform\graph</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\platform\os\win.c">
+      <Filter>源文件\ui\platform\os</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\control\ZuiButton.c">
+      <Filter>源文件\ui\control</Filter>
+    </ClCompile>
+    <ClCompile Include="list\play_list.c">
+      <Filter>源文件\list</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

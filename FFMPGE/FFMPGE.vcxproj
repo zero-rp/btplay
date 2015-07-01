@@ -43,6 +43,7 @@
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(ProjectDir)\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(ProjectDir)\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>$(SolutionDir)bin\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -56,13 +57,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <CompileAs>Default</CompileAs>
+      <CompileAs>CompileAsC</CompileAs>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>winmm.lib;dsound.lib;Ws2_32.lib;libpthreadGC2.a;opengl32.lib;glu32.lib;ddraw.lib;dxguid.lib;d3d9.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>winmm.lib;dsound.lib;Ws2_32.lib;libpthreadGC2.a;opengl32.lib;glu32.lib;ddraw.lib;dxguid.lib;d3d9.lib;DLBT.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -98,7 +99,19 @@
     <ClInclude Include="libav\avplay.h" />
     <ClInclude Include="libav\ffmpeg.h" />
     <ClInclude Include="libav\globals.h" />
+    <ClInclude Include="list\play_list.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="ui\config.h" />
+    <ClInclude Include="ui\control\ZuiButton.h" />
+    <ClInclude Include="ui\core\Control.h" />
+    <ClInclude Include="ui\core\function.h" />
+    <ClInclude Include="ui\core\window.h" />
+    <ClInclude Include="ui\platform\graph\gdi.h" />
+    <ClInclude Include="ui\platform\graph\graph.h" />
+    <ClInclude Include="ui\platform\os\os.h" />
+    <ClInclude Include="ui\platform\os\win.h" />
+    <ClInclude Include="ui\platform\platform.h" />
+    <ClInclude Include="ui\zui.h" />
     <ClInclude Include="video\d3d_render.h" />
     <ClInclude Include="video\ddraw_render.h" />
     <ClInclude Include="video\internal.h" />
@@ -109,23 +122,44 @@
     <ClInclude Include="video\y4m_render.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="audio\audio_out.cpp" />
-    <ClCompile Include="audio\dsound_render.cpp" />
-    <ClCompile Include="audio\wave_render.cpp" />
-    <ClCompile Include="FFMPGE.cpp" />
+    <ClCompile Include="audio\audio_out.cpp">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="audio\dsound_render.cpp">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="audio\wave_render.cpp">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="FFMPGE.cpp">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+    </ClCompile>
     <ClCompile Include="libav\avplay.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
     </ClCompile>
+    <ClCompile Include="list\play_list.c" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="video\d3d_render.cpp" />
-    <ClCompile Include="video\ddraw_render.cpp" />
-    <ClCompile Include="video\opengl_render.cpp" />
-    <ClCompile Include="video\soft_render.cpp" />
-    <ClCompile Include="video\video_out.cpp" />
-    <ClCompile Include="video\y4m_render.cpp" />
+    <ClCompile Include="ui\control\ZuiButton.c" />
+    <ClCompile Include="ui\core\Control.c" />
+    <ClCompile Include="ui\core\function.c" />
+    <ClCompile Include="ui\core\window.c" />
+    <ClCompile Include="ui\platform\graph\gdi.c" />
+    <ClCompile Include="ui\platform\os\win.c" />
+    <ClCompile Include="video\d3d_render.cpp">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="video\ddraw_render.cpp">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="video\soft_render.cpp">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="video\video_out.cpp">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
